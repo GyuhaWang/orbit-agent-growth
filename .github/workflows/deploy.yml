@@ -1,0 +1,34 @@
+name: Deploy Orbit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy public image to host
+        env:
+          DEPLOY_HOST: ${{ secrets.ORBIT_DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.ORBIT_DEPLOY_USER }}
+          DEPLOY_KEY: ${{ secrets.ORBIT_DEPLOY_SSH_KEY }}
+        run: |
+          test -n "$DEPLOY_HOST" && test -n "$DEPLOY_USER" && test -n "$DEPLOY_KEY"
+          install -m 600 /dev/null deploy_key
+          printf '%s\n' "$DEPLOY_KEY" > deploy_key
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          ssh -i deploy_key "$DEPLOY_USER@$DEPLOY_HOST" <<'REMOTE'
+          set -eu
+          docker pull ghcr.io/gyuhawang/orbit-agent-growth:latest
+          docker volume create orbit_data >/dev/null
+          docker rm -f orbit 2>/dev/null || true
+          docker run -d --name orbit --restart unless-stopped \
+            -p 4173:4173 \
+            -v orbit_data:/app/data \
+            ghcr.io/gyuhawang/orbit-agent-growth:latest
+          curl --fail --retry 10 --retry-delay 2 http://127.0.0.1:4173/health
+          REMOTE
+          rm -f deploy_key

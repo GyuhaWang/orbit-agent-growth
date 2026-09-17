@@ -16,6 +16,8 @@ npm run dev
 
 출시·운영 계획은 [LAUNCH_PLAN.md](./LAUNCH_PLAN.md), 컨테이너 배포는 [Dockerfile](./Dockerfile)을 참고하세요.
 
+GitHub Actions를 이용한 격리 배포는 [DEPLOYMENT.md](./DEPLOYMENT.md)를 참고하세요.
+
 `main`에 push하면 GitHub Actions가 `ghcr.io/<owner>/<repo>:latest` 이미지를 빌드·게시합니다.
 
 현재는 데모 데이터와 브라우저 상호작용만 포함되어 있습니다. 실제 운영에는 인증, 서버 DB, 이메일/메시지 발송 동의, rate limit, 중복·봇 검증, 분석 이벤트 저장소를 연결해야 합니다.
