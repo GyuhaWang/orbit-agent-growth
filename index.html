@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="에이전트가 함께 만드는 7일 100명 런치 캠페인" />
+    <title>Orbit — 7일 유저 런치</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">✦</span><span>orbit</span></div>
+        <div class="workspace"><span class="avatar">O</span><span><b>Orbit workspace</b><small>Growth command center</small></span><span class="chevron">⌄</span></div>
+        <nav>
+          <p class="nav-label">WORKSPACE</p>
+          <a class="active" href="#overview"><span>◈</span> Overview</a>
+          <a href="#agents"><span>✣</span> Agents <em>5</em></a>
+          <a href="#waitlist"><span>♧</span> Waitlist <em class="mint">42</em></a>
+          <a href="#playbook"><span>☷</span> Playbook</a>
+          <p class="nav-label">MANAGE</p>
+          <a href="#integrations"><span>⊞</span> Integrations</a>
+          <a href="#settings"><span>⚙</span> Settings</a>
+        </nav>
+        <div class="sidebar-bottom"><div class="help">?</div><span>Need a hand?</span><button>↗</button></div>
+      </aside>
+
+      <main class="main" id="overview">
+        <header class="topbar"><div><p class="eyebrow">MONDAY, SEPTEMBER 21, 2026</p><h1>Good morning, Yujeo <span>✦</span></h1></div><div class="top-actions"><button class="icon-button">⌕</button><button class="icon-button notification">♢<i></i></button><div class="profile">YJ</div></div></header>
+
+        <section class="campaign-head"><div><div class="status-pill"><span></span> LIVE CAMPAIGN</div><h2>7일 안에 첫 100명 만들기</h2><p>에이전트들이 알아서 움직이고 있어요. 다음 체크인은 3시간 후입니다.</p></div><button class="primary" id="newCampaign">+ New campaign</button></section>
+
+        <section class="hero-grid">
+          <article class="card goal-card"><div class="card-title"><span>CAMPAIGN PROGRESS</span><span class="mono">DAY 3 / 7</span></div><div class="goal-number"><strong id="userCount">42</strong><span>/ 100 users</span><b>+12.4% <small>vs. yesterday</small></b></div><div class="progress"><span id="progressBar"></span></div><div class="progress-meta"><span>42% complete</span><span>4 days left</span></div><div class="sparkline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="card today-card"><div class="card-title"><span>TODAY'S PULSE</span><span class="live-dot">● LIVE</span></div><div class="pulse-row"><div><strong>+18</strong><span>new signups</span></div><div><strong>64%</strong><span>invite conversion</span></div><div><strong>08:42</strong><span>last activity</span></div></div><div class="quote">“Small, useful, and worth sharing.”<small>— feedback from today’s waitlist</small></div></article>
+        </section>
+
+        <section class="content-grid">
+          <article class="card agents-card" id="agents"><div class="section-head"><div><p class="kicker">AUTONOMOUS TEAM</p><h3>Agents at work</h3></div><button class="text-button">View all agents →</button></div><div class="agent-list"><div class="agent"><span class="agent-icon coral">◒</span><div><b>Scout</b><small>Finding aligned communities</small></div><span class="agent-status working"><i></i> Working</span><span class="agent-result">12 leads</span></div><div class="agent"><span class="agent-icon purple">✺</span><div><b>Storyteller</b><small>Writing shareable launch posts</small></div><span class="agent-status working"><i></i> Working</span><span class="agent-result">4 drafts</span></div><div class="agent"><span class="agent-icon yellow">⌁</span><div><b>Connector</b><small>Preparing warm introductions</small></div><span class="agent-status review"><i></i> Needs review</span><span class="agent-result">7 intros</span></div><div class="agent"><span class="agent-icon blue">↗</span><div><b>Analyst</b><small>Watching channel quality</small></div><span class="agent-status done"><i></i> On track</span><span class="agent-result">3 insights</span></div></div></article>
+          <article class="card invite-card"><div class="section-head"><div><p class="kicker">YOUR GROWTH LOOP</p><h3>Invite & earn</h3></div><span class="loop-icon">↗</span></div><p>친구 한 명이 가입할 때마다 캠페인에 <b>+1 momentum</b>가 쌓여요.</p><div class="invite-link"><span>orbit.so/join/yujeo</span><button id="copyLink">Copy link</button></div><div class="invite-stats"><div><strong>24</strong><span>shares</span></div><div><strong>18</strong><span>visits</span></div><div><strong>12</strong><span>joined</span></div></div><div class="mini-note">↗ 이번 주 가장 잘 작동한 채널은 <b>친구 추천</b>이에요.</div></article>
+        </section>
+
+        <section class="card table-card" id="waitlist"><div class="section-head"><div><p class="kicker">LIVE SIGNALS</p><h3>Recent waitlist activity</h3></div><button class="filter-button">All sources⌄</button></div><div class="table-wrap"><table><thead><tr><th>PERSON</th><th>SOURCE</th><th>STATUS</th><th>JOINED</th></tr></thead><tbody id="activityRows"><tr><td><span class="person-avatar peach">H</span><span class="person-name">Hana Kim</span></td><td><span class="source-dot coral"></span> Friend referral</td><td><span class="tag confirmed">Confirmed</span></td><td class="muted">2 min ago</td></tr><tr><td><span class="person-avatar sky">M</span><span class="person-name">Minho Park</span></td><td><span class="source-dot purple"></span> Community post</td><td><span class="tag confirmed">Confirmed</span></td><td class="muted">18 min ago</td></tr><tr><td><span class="person-avatar mint">S</span><span class="person-name">Sora Lee</span></td><td><span class="source-dot yellow"></span> Agent outreach</td><td><span class="tag pending">Pending</span></td><td class="muted">42 min ago</td></tr><tr><td><span class="person-avatar lilac">J</span><span class="person-name">Jaehoon Choi</span></td><td><span class="source-dot blue"></span> Landing page</td><td><span class="tag confirmed">Confirmed</span></td><td class="muted">1 hr ago</td></tr></tbody></table></div><button class="load-more" id="loadMore">Load more activity</button></section>
+        <footer><span>Orbit growth OS <b>·</b> Built for thoughtful growth</span><span>All systems operational <i></i></span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast">Link copied to clipboard</div>
+    <script src="app.js"></script>
+  </body>
+</html>

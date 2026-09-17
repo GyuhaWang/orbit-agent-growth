@@ -1,0 +1,6 @@
+{
+  "name": "agent-growth-100",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": { "dev": "node server.js" }
+}
