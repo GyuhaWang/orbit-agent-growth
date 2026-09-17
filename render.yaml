@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: orbit-agent-growth
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 4173
+    disk:
+      name: orbit-data
+      mountPath: /app/data
+      sizeGB: 1
